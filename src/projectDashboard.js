@@ -5,7 +5,7 @@ import { getProjectList } from "./projectList";
 
 
 export function createProjectDashboard(){
-    const projectDiv = createDivH2("your-project-container","Your Projects","Your Projects");
+    const projectDiv = createDivH2("your-project-container","dashboard-projects","Projects");
     const projectListDiv = createDivId("project-list");
     projectDiv.appendChild(projectListDiv);
     const projectList = getProjectList();

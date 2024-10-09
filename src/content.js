@@ -9,7 +9,7 @@ import { getCurrentProject } from "./projectList";
 export function createContent(){
     const contentDiv = createDivId("content-container");
 
-    const projHeader = createH2Id(getCurrentProject().title,getCurrentProject().title);
+    const projHeader = createH2Id("project-title",getCurrentProject().title);
     contentDiv.appendChild(projHeader);
 
     const todoList = createDivId("project-todo-list");

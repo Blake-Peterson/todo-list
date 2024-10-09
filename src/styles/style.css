@@ -11,7 +11,7 @@ button {
   height: 100vh;
   background-color: aqua;
   display: grid;
-  grid-template-columns: 3fr 9fr;
+  grid-template-columns: 2fr 14fr;
   grid-template-rows: 1fr 11fr;
 }
 
@@ -21,26 +21,51 @@ button {
   grid-row: 1/2;
 }
 
+#header-banner {
+  margin: 0 auto;
+}
+
 #your-project-container {
   grid-column: 1/2;
   grid-row: 2/3;
   border: black solid 1px;
 }
 
-#your-projects {
+#dashboard-projects {
 }
 
 #project-list {
   margin: 0 auto;
 }
 
+.project-button {
+}
+
+#add-project-btn {
+}
+
 #content-container {
   grid-column: 2/3;
   grid-row: 2/3;
+  display: grid;
+  grid-template-rows: 1fr 11fr 2fr;
+  gap: 1em;
+}
+
+#project-title {
+  margin: 16px auto;
 }
 
 #project-todo-list {
+  background-color: blue;
+  grid-row: 2/3;
 }
 
 #add-todo-button {
+  grid-row: 3/4;
+  box-sizing: border-box;
+  width: 88%;
+  height: 80%;
+  border-radius: 1em;
+  margin: 0 auto;
 }
