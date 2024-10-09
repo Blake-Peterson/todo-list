@@ -2,8 +2,9 @@ import { createDivId } from "./div";
 
 export function createDivH2(div_id_name,id_name,h2Text){
     const div = createDivId(div_id_name);
-    const h2 = createDivId(id_name,h2Text);
+    const h2 = createH2Id(id_name,h2Text);
     div.appendChild(h2);
+    return div;
 }
 
 export function createH2Id(id_name,h2Text){
