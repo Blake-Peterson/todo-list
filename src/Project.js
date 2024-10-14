@@ -13,7 +13,11 @@ export class Project{
     }
 
     removeTodo(todo){
-        //TODO:
+        for(let i =0;i<this.todoList.length;i++){
+            if(todo == this.todoList[i]){
+                this.todoList.splice(i,1);
+            }
+        }
     }
     
 }

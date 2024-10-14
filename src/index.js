@@ -13,7 +13,7 @@ function main(){
     const project = getCurrentProject();
     console.log(project);
 
-    const header = createDivH2("header","header-banner","Welcome to your Todo Lists");
+    const header = createDivH2("header","header-banner",`${getCurrentProject().title}: Todos`);
     container.appendChild(header);
 
     const dashboard = createProjectDashboard();

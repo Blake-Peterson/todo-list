@@ -1,7 +1,6 @@
-export function openDialog(){
+export function createDialog(){
+    const dialog = document.createElement("dialog");
 
-}
 
-export function closeDialog(){
-    
+    return dialog;
 }
