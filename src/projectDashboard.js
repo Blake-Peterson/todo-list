@@ -2,6 +2,8 @@ import { createButtonClass, createButtonID } from "./modules/button";
 import { createDivId } from "./modules/div";
 import { createDivH2 } from "./modules/header";
 import { getProjectList } from "./projectList";
+import { createDialog } from "./modules/dialog";
+import { createProjectForm } from "./modules/form";
 
 
 export function createProjectDashboard(){
@@ -18,4 +20,18 @@ export function createProjectDashboard(){
     projectDiv.appendChild(addProjBtn);
     
     return projectDiv;
+}
+
+export function updateProjectToDashboard(){
+    const addProjBtn = document.querySelector("#add-project-btn");
+    const content = document.querySelector("#content-container");
+
+    addProjBtn.addEventListener("click",(event)=>{
+        event.preventDefault();
+        const dialog = createDialog("Enter Project Information");
+        const form = createProjectForm();
+        dialog.appendChild(form);
+        content.appendChild(dialog);
+        dialog.showModal();
+    });
 }

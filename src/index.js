@@ -4,7 +4,7 @@ import {Todo} from "./Todo.js";
 import { getCurrentProject, getProjectList } from "./projectList.js";
 import { createDivH2, createH2Id } from "./modules/header.js";
 import { createContent } from "./content.js";
-import { createProjectDashboard } from "./projectDashboard.js";
+import { createProjectDashboard, updateProjectToDashboard } from "./projectDashboard.js";
 
 const container = document.querySelector("#container");
 
@@ -22,6 +22,9 @@ function main(){
     const content = createContent();
     container.appendChild(content);
 
+    updateProjectToDashboard();
+
+    //updateTodosToContent();
 }
 
 main();
