@@ -20,3 +20,8 @@ export function createH2Class(class_name,h2Text){
     header.textContent = h2Text;
     return header;
 }
+
+function updateAppHeaderName(projectTitle){
+    const header = document.querySelector("#header-banner");
+    header.textContent = projectTitle;
+}

@@ -11,7 +11,6 @@ const container = document.querySelector("#container");
 
 function main(){
     const project = getCurrentProject();
-    console.log(project);
 
     const header = createDivH2("header","header-banner",`${getCurrentProject().title}: Todos`);
     container.appendChild(header);
@@ -25,6 +24,7 @@ function main(){
     updateProjectToDashboard();
 
     //updateTodosToContent();
+    console.log(getProjectList());
 }
 
 main();

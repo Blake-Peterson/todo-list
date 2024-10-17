@@ -1,9 +1,10 @@
 import { createButtonClass, createButtonID } from "./modules/button";
 import { createDivId } from "./modules/div";
 import { createDivH2 } from "./modules/header";
-import { getProjectList } from "./projectList";
+import { addProjectToList, getProjectList } from "./projectList";
 import { createDialog } from "./modules/dialog";
 import { createProjectForm } from "./modules/form";
+import { Project } from "./Project";
 
 
 export function createProjectDashboard(){
@@ -45,10 +46,14 @@ export function updateProjectToDashboard(){
             button.textContent = projectTitle;
             
             projectListDiv.appendChild(button);
+            addProjectToList(new Project(projectTitle,[]));
 
+
+            console.log(getProjectList);
             form.querySelector("#projectName").value = "";
             dialog.close();
         })
         
     });
 }
+

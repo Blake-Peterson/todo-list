@@ -20,3 +20,7 @@ export function getCurrentProject(){
     console.log(projectList[0]);
     return projectList[0];
 }
+
+export function addProjectToList(new_project){
+    projectList.push(new_project);
+}
