@@ -10,7 +10,7 @@ button {
 
 dialog {
   position: fixed;
-  width: clamp(5em, 10vw, 20%);
+  width: clamp(20%, 6em, 30%);
   height: 0 auto;
   left: 50%;
   top: 30%;
@@ -18,7 +18,7 @@ dialog {
   padding: 8px;
 }
 
-#input #container {
+#container {
   width: 100vw;
   height: 100vh;
   background-color: aqua;
@@ -60,6 +60,7 @@ dialog {
   height: 2em;
   border-radius: 1em;
   border: none;
+  margin-top: 8px;
 }
 
 #add-project-btn {

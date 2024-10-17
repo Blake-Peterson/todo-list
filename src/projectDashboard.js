@@ -30,8 +30,25 @@ export function updateProjectToDashboard(){
         event.preventDefault();
         const dialog = createDialog("Enter Project Information");
         const form = createProjectForm();
+
         dialog.appendChild(form);
         content.appendChild(dialog);
         dialog.showModal();
+
+        form.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            const projectTitle = form.querySelector("#projectName").value;
+
+            const projectListDiv = document.querySelector("#project-list");
+
+            const button = createButtonClass("project-button");
+            button.textContent = projectTitle;
+            
+            projectListDiv.appendChild(button);
+
+            form.querySelector("#projectName").value = "";
+            dialog.close();
+        })
+        
     });
 }
