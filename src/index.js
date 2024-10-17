@@ -5,6 +5,7 @@ import { getCurrentProject, getProjectList } from "./projectList.js";
 import { createDivH2, createH2Id } from "./modules/header.js";
 import { createContent } from "./content.js";
 import { createProjectDashboard, updateProjectToDashboard } from "./projectDashboard.js";
+import { updateTodosToContent } from "./content.js";
 
 const container = document.querySelector("#container");
 
@@ -23,7 +24,7 @@ function main(){
 
     updateProjectToDashboard();
 
-    //updateTodosToContent();
+    updateTodosToContent();
     console.log(getProjectList());
 }
 

@@ -48,8 +48,6 @@ export function updateProjectToDashboard(){
             projectListDiv.appendChild(button);
             addProjectToList(new Project(projectTitle,[]));
 
-
-            console.log(getProjectList);
             form.querySelector("#projectName").value = "";
             dialog.close();
         })

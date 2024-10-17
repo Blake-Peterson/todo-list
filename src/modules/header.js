@@ -21,7 +21,7 @@ export function createH2Class(class_name,h2Text){
     return header;
 }
 
-function updateAppHeaderName(projectTitle){
+function updateProjectHeaderName(projectTitle){
     const header = document.querySelector("#header-banner");
     header.textContent = projectTitle;
 }
