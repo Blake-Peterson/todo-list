@@ -76,7 +76,7 @@ dialog {
   grid-column: 2/3;
   grid-row: 2/3;
   display: grid;
-  grid-template-rows: 1fr 11fr 2fr;
+  grid-template-rows: 1fr 14fr 2fr;
   gap: 1em;
 }
 
@@ -88,7 +88,34 @@ dialog {
   background-color: pink;
   grid-row: 2/3;
   width: 96%;
+  overflow-y: auto;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.todo-card {
+  width: 30%;
+  height: 150px;
+  background-color: silver;
+  margin-top: 16px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.todo-card-title {
+  grid-row: 1/2;
+}
+
+.todo-card-due-date {
+  grid-row: 2/3;
+}
+
+.todo-card-done {
+  grid-row: 3/4;
+  border-radius: 1em;
 }
 
 #add-todo-button {

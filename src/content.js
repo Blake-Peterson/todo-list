@@ -6,6 +6,7 @@ import { Todo } from "./Todo";
 import { getCurrentProject } from "./projectList";
 import { createDialog } from "./modules/dialog";
 import { createContentForm } from "./modules/form";
+import { createTodoCard } from "./todoCard";
 
 
 export function createContent(){
@@ -55,6 +56,8 @@ export function updateTodosToContent(){
 
     currentProject.todoList.forEach(todo =>{
         console.log(todo);
+        const card = createTodoCard(todo);
+        document.querySelector("#project-todo-list").appendChild(card);
     });
  
 }

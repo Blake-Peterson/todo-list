@@ -17,8 +17,16 @@ export function getProjectList(){
 }
 
 export function getCurrentProject(){
-    console.log(projectList[0]);
-    return projectList[0];
+    for(let i=0;i<projectList.length;i++){
+        if(projectList.length===1){
+            return projectList[0];
+        } else{
+            const header = document.querySelector("#header-banner");
+            if(projectList[i].title===header.textContent){
+                return project[i];
+            }
+        }
+    }
 }
 
 export function addProjectToList(new_project){
