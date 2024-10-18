@@ -23,7 +23,7 @@ export function getCurrentProject(){
         } else{
             const header = document.querySelector("#header-banner");
             if(projectList[i].title===header.textContent){
-                return project[i];
+                return projectList[i];
             }
         }
     }

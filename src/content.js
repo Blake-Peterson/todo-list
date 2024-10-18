@@ -37,13 +37,10 @@ export function createContent(){
 
             const currentProject = getCurrentProject();
             currentProject.addTodo(new Todo(todoName,description,dueDate,priority));
-            console.log(getCurrentProject());
 
             dialog.close();
         })
-        
     });
-
     contentDiv.appendChild(addTodoBtn);
 
     return contentDiv;
@@ -55,7 +52,6 @@ export function updateTodosToContent(){
     const currentProject = getCurrentProject();
 
     currentProject.todoList.forEach(todo =>{
-        console.log(todo);
         const card = createTodoCard(todo);
         document.querySelector("#project-todo-list").appendChild(card);
     });
