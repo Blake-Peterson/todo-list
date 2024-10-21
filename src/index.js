@@ -23,7 +23,6 @@ function main(){
     container.appendChild(content);
 
     updateTodosToContent();
-    console.log(getProjectList());
 }
 
 main();

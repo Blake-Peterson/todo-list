@@ -71,6 +71,7 @@ dialog {
   width: clamp(6em, 16em, 90%);
   height: 5em;
   border-radius: 1em;
+  font-weight: 600;
 }
 
 #content-container {
