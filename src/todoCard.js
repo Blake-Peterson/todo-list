@@ -21,7 +21,27 @@ export function createTodoCard(todo){
     const completeBtn = createButtonClass("todo-card-done","Done");
     todoCardActionsDiv.appendChild(completeBtn);
 
+    updateTodoCardColor(cardDiv,todo);
+
     cardDiv.appendChild(todoCardActionsDiv);
     
     return cardDiv;
+}
+
+function updateTodoCardColor(cardDiv,todo){
+    const priority = todo.priority;
+    switch(priority){
+        case "Critical":
+            cardDiv.style.background = "red";
+            break;
+        case "High":
+            cardDiv.style.background = "orange";
+            break;
+        case "Medium":
+            cardDiv.style.background = "yellow";
+            break;
+        default:
+            cardDiv.style.background = "green";
+            break;
+    }
 }
