@@ -18,6 +18,6 @@ export class Project{
                 this.todoList.splice(i,1);
             }
         }
-    }
-    
+    } 
+
 }

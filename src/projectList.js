@@ -20,15 +20,27 @@ export function getCurrentProject(){
     for(let i=0;i<projectList.length;i++){
         if(projectList.length===1){
             return projectList[0];
-        } else{
-            const header = document.querySelector("#header-banner");
-            if(projectList[i].title===header.textContent){
-                return projectList[i];
-            }
+        } 
+
+        const header = document.querySelector("#header-banner");
+        if(projectList[i].title==header.textContent.slice(0,-7)){
+            console.log("different Project");
+            return projectList[i];
         }
+        
     }
 }
+
 
 export function addProjectToList(new_project){
     projectList.push(new_project);
 }
+
+export function removeTodoFromProjectList(todo){
+    let project = getCurrentProject();
+    for(let i=0;i<project.todoList.length;i++){
+        if(todo.title === project.todoList[i]){
+            project.todoList.splice(i,1);
+        }
+    }
+}   

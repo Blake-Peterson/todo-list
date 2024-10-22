@@ -3,20 +3,21 @@ import {createButtonID} from "./modules/button";
 import {createH2Id} from "./modules/header";
 import { Project } from "./Project";
 import { Todo } from "./Todo";
-import { getCurrentProject } from "./projectList";
+import { getCurrentProject, getProjectList, getTodoList } from "./projectList";
 import { createDialog } from "./modules/dialog";
 import { createContentForm } from "./modules/form";
 import { createTodoCard } from "./todoCard";
 
+const todoListDiv = createDivId("project-todo-list");
 
 export function createContent(){
     const contentDiv = createDivId("content-container");
 
-    const projHeader = createH2Id("project-title","");//getCurrentProject().title);
+    const projHeader = createH2Id("project-title","");
     contentDiv.appendChild(projHeader);
-
-    const todoList = createDivId("project-todo-list");
-    contentDiv.appendChild(todoList);
+    
+    contentDiv.appendChild(todoListDiv);
+    updateTodosToContent(getCurrentProject());
 
     const addTodoBtn = createButtonID("add-todo-button","Add a Todo");
     addTodoBtn.addEventListener("click",(event)=>{
@@ -36,7 +37,8 @@ export function createContent(){
             const priority = form.querySelector("#todoPriority");
 
             const currentProject = getCurrentProject();
-            currentProject.addTodo(new Todo(todoName,description,dueDate,priority));
+            const newTodo = new Todo(todoName,description,dueDate,priority);
+            currentProject.addTodo(newTodo);
 
             dialog.close();
         })
@@ -46,14 +48,24 @@ export function createContent(){
     return contentDiv;
 }
 
+export function updateSwitchProjectTodos(project){
+    removeTodosFromContent();
+    updateTodosToContent(project);
+}
 
-export function updateTodosToContent(){
-    const todoListDiv = document.querySelector("#project-todo-list");
-    const currentProject = getCurrentProject();
+function removeTodosFromContent(){
+    while(todoListDiv.firstChild){
+        todoListDiv.removeChild(todoListDiv.firstChild);
+    }
+}
 
-    currentProject.todoList.forEach(todo =>{
+function updateTodosToContent(project){
+    console.log("switched project")
+    console.log(project);
+    
+    const todos = project.todoList;
+    todos.forEach(todo =>{
         const card = createTodoCard(todo);
-        document.querySelector("#project-todo-list").appendChild(card);
+        todoListDiv.appendChild(card);
     });
- 
 }
