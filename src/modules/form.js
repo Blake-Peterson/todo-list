@@ -26,10 +26,10 @@ export function createContentForm(){
     const todoNameDiv = createLabelInputDiv(createLabel("todoName","Todo Name"),createInput("text","todoName"));
     form.appendChild(todoNameDiv);
 
-    const descriptionDiv = createLabelInputDiv(createLabel("todoDescription","Description"),createTextArea("textarea","todoDescription","4","50"));
+    const descriptionDiv = createLabelInputDiv(createLabel("todoDescription","Description"),createTextArea("textarea","todoDescription","4","30"));
     form.appendChild(descriptionDiv);
 
-    const dueDateDiv = createLabelInputDiv(createLabel("todoDueDate","Due Date"),createInput("date","todoDDueDate"));
+    const dueDateDiv = createLabelInputDiv(createLabel("todoDueDate","Due Date"),createInput("date","todoDueDate"));
     form.appendChild(dueDateDiv);
 
     const priorityList = ["Low","Medium","High","Critical"];

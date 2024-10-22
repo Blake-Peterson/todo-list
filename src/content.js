@@ -31,16 +31,19 @@ export function createContent(){
 
         form.addEventListener("submit",(event)=>{
             event.preventDefault();
-            const todoName = form.querySelector("#todoName").value;
-            const description = form.querySelector("#todoDescription");
-            const dueDate = form.querySelector("#todoDueDate");
-            const priority = form.querySelector("#todoPriority");
+            const todoName = form.elements["todoName"].value;
+            const description = form.elements["todoDescription"].value;
+            const dueDate = form.elements["todoDueDate"].value;
+            const priority = form.elements["todoPriority"].value;
 
             const currentProject = getCurrentProject();
             const newTodo = new Todo(todoName,description,dueDate,priority);
             currentProject.addTodo(newTodo);
 
             dialog.close();
+            console.log(getCurrentProject().todoList);
+            removeTodosFromContent();
+            updateTodosToContent(getCurrentProject());
         })
     });
     contentDiv.appendChild(addTodoBtn);
@@ -58,6 +61,7 @@ export function removeTodosFromContent(){
         todoListDiv.removeChild(todoListDiv.firstChild);
     }
 }
+
 
 export function updateTodosToContent(project){    
     const todos = project.todoList;

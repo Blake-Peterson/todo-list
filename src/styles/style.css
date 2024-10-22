@@ -10,7 +10,7 @@ button {
 
 dialog {
   position: fixed;
-  width: clamp(20%, 6em, 30%);
+  width: clamp(30%, 8em, 40%);
   height: 0 auto;
   left: 50%;
   top: 30%;
