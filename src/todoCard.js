@@ -1,8 +1,11 @@
 import { createButtonClass } from "./modules/button";
 import { createDivClass, createDivId } from "./modules/div";
 import { createH2Class } from "./modules/header";
-import { getCurrentProject } from "./projectList";
+import { getCurrentProject, removeTodoFromProjectList } from "./projectList";
 import { Todo } from "./Todo";
+import {removeTodosFromContent} from "./content.js";
+
+
 
 export function createTodoCard(todo){
     const cardDiv = createDivClass("todo-card");
@@ -18,6 +21,16 @@ export function createTodoCard(todo){
     todoCardActionsDiv.appendChild(expandBtn);
 
     const doneBtn = createButtonClass("todo-card-done","Done");
+    doneBtn.addEventListener("click", ()=>{
+        console.log("clicked");
+        removeTodosFromContent();
+        removeTodoFromProjectList(todo);
+        const project = getCurrentProject();
+        project.todoList.forEach(project_todo =>{
+            const card = createTodoCard(project_todo);
+            document.querySelector("#project-todo-list").appendChild(card);
+        });
+    });
 
     todoCardActionsDiv.appendChild(doneBtn);
 
@@ -45,3 +58,5 @@ function updateTodoCardColor(cardDiv,todo){
             break;
     }
 }
+
+

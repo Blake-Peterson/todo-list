@@ -132,8 +132,9 @@ dialog {
 .todo-card-expand,
 .todo-card-done {
   width: 25%;
-  border: black 1px solid;
+  border: black 2px solid;
   border-radius: 1em;
+  font-weight: 600;
 }
 
 .todo-card-edit {

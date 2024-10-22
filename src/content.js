@@ -53,16 +53,13 @@ export function updateSwitchProjectTodos(project){
     updateTodosToContent(project);
 }
 
-function removeTodosFromContent(){
+export function removeTodosFromContent(){
     while(todoListDiv.firstChild){
         todoListDiv.removeChild(todoListDiv.firstChild);
     }
 }
 
-function updateTodosToContent(project){
-    console.log("switched project")
-    console.log(project);
-    
+export function updateTodosToContent(project){    
     const todos = project.todoList;
     todos.forEach(todo =>{
         const card = createTodoCard(todo);

@@ -21,16 +21,12 @@ export function getCurrentProject(){
         if(projectList.length===1){
             return projectList[0];
         } 
-
         const header = document.querySelector("#header-banner");
         if(projectList[i].title==header.textContent.slice(0,-7)){
-            console.log("different Project");
             return projectList[i];
         }
-        
     }
 }
-
 
 export function addProjectToList(new_project){
     projectList.push(new_project);
@@ -39,7 +35,7 @@ export function addProjectToList(new_project){
 export function removeTodoFromProjectList(todo){
     let project = getCurrentProject();
     for(let i=0;i<project.todoList.length;i++){
-        if(todo.title === project.todoList[i]){
+        if(todo.title === project.todoList[i].title){
             project.todoList.splice(i,1);
         }
     }
