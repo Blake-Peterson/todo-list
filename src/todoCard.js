@@ -11,14 +11,23 @@ export function createTodoCard(todo){
     const cardDiv = createDivClass("todo-card");
     const cardName = createH2Class("todo-card-title",todo.title);
     const dueDate = createH2Class("todo-card-due-date",todo.dueDate);
-    cardDiv.appendChild(cardName);
-    cardDiv.appendChild(dueDate);
+    const div = document.createElement("div");
+    div.classList.add("card-header");
+    div.appendChild(cardName);
+    div.appendChild(dueDate);
+    cardDiv.appendChild(div);
+
+    const cardDescription = document.createElement("p");
+    cardDescription.classList.add("todo-card-description");
+    cardDescription.textContent = todo.description;
+    cardDescription.style.display = "none";
+    cardDiv.appendChild(cardDescription);
 
     const todoCardActionsDiv = createDivId("todo-card-actions");
     
-    const expandBtn = createButtonClass("todo-card-expand","Expand");
-
-    todoCardActionsDiv.appendChild(expandBtn);
+    const editBtn = createButtonClass("todo-card-edit","Edit");
+    editBtn.addEventListener("click",()=> handleEdit(cardDiv,todo,editBtn));
+    todoCardActionsDiv.appendChild(editBtn);
 
     const doneBtn = createButtonClass("todo-card-done","Done");
     doneBtn.addEventListener("click", ()=>{
@@ -31,7 +40,6 @@ export function createTodoCard(todo){
             document.querySelector("#project-todo-list").appendChild(card);
         });
     });
-
     todoCardActionsDiv.appendChild(doneBtn);
 
     updateTodoCardColor(cardDiv,todo);
@@ -59,4 +67,31 @@ function updateTodoCardColor(cardDiv,todo){
     }
 }
 
+function handleEdit(cardDiv, todo,editBtn){
+    const isEditing = editBtn.textContent === "Edit";
 
+    const title = cardDiv.querySelector(".todo-card-title");
+    const dueDate = cardDiv.querySelector(".todo-card-due-date");
+    const description = cardDiv.querySelector(".todo-card-description");
+
+    if(isEditing){
+        editBtn.textContent = "Save";
+        
+        title.contentEditable = "true";
+        dueDate.contentEditable = "true";
+
+        description.style.display = "block";
+        description.contentEditable = "true";
+    } else {
+        editBtn.textContent = "Edit";
+
+        todo.title = title.textContent;
+        todo.dueDate = dueDate.textContent;
+        todo.description = description.textContent;
+
+        title.contentEditable = "false";
+        dueDate.contentEditable = "false";
+        description.contentEditable = "false";
+
+    }
+}
